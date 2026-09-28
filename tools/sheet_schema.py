@@ -1,0 +1,42 @@
+"""Shared column definitions for the Brand Feeds sheet (used by seed + sync)."""
+BRAND_KEYS = [
+    ('Brand name',    'name',       'Shown in the workspace, setup rail and copy'),
+    ('Store URL',     'host',       'Domain only, e.g. wework.co.in'),
+    ('Product count', 'products',   'Live product count shown during setup'),
+    ('Catalog unit',  'unit',       'What the count counts, e.g. products or centres (default products)'),
+    ('Logo',          'logo',       'Image path, URL or Drive link'),
+    ('Brand colors',  'colors',     'Hex codes, comma separated'),
+    ('Type sample',   'type_sample','The word set in the heading face on the Brand guidelines card'),
+    ('Type label',    'type_name',  'Caption under it, e.g. "Serif headings, sans-serif body"'),
+    ('Type CSS',      'type_face',  'CSS font-family for the sample'),
+    ('Variant note',  'note',       'What makes this tab different (for humans only)'),
+]
+POSTS_MARKER = 'post_id'
+COLUMNS = [
+    ('post_id',     'Unique id. Never reuse one. Rows are shown in the order they appear here.'),
+    ('status',      'live | draft | hidden. Only live rows are shown.'),
+    ('location',    'Where it shows: feed, deck, onboarding. Several allowed, comma separated.'),
+    ('type',        'image | table | text | chart | rings | about | brandkit | connect'),
+    ('agent',       'creative | performance | storefront | visibility | crm | orchestrator'),
+    ('deck_column', 'Optional: force a deck column (catalog, creatives, ads, storefront, visibility). Blank = by agent.'),
+    ('time',        'Posted-ago label, e.g. 12 min'),
+    ('title',       'Card headline'),
+    ('description', 'Card body. Keep within ~200 characters.'),
+    ('images',      'One per line (carousel if more than one). Repo path, https URL or Google Drive link.'),
+    ('image_ratio', 'square | 4:5 | wide (all render square today)'),
+    ('image_fit',   'blank = crop, contain = show whole image'),
+    ('fit_bg',      'Background hex behind a contained image'),
+    ('campaign',    'Campaign name (creative posts)'),
+    ('badge',       'Badge label (table posts)'),
+    ('badge_tone',  'ok | warn | bad | info'),
+    ('table_rows',  'Table posts: one row per line, "Label | Value"'),
+    ('tags',        'About cards: comma separated. "+Add team size" = empty slot, "name #hex" = coloured dot'),
+    ('editable',    'About cards: yes = pencil icon'),
+    ('cta_label',   'Button text'),
+    ('cta_icon',    'Icon on the button, e.g. meta'),
+    ('cta_color',   'Icon colour hex'),
+    ('connect',     'Connect rows: which connector, e.g. sanity (blank = a generic store platform)'),
+    ('extra_json',  'Advanced (chart / rings data). Leave alone unless you know the shape.'),
+    ('notes',       'Your notes. Never shown.'),
+]
+COL_KEYS = [c for c, _ in COLUMNS]
